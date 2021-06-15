@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sistema de Control Claudia Roman</title>
+	<title>Sistema de ejemplo</title>
 
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">
