@@ -3,15 +3,24 @@
 ###############################################################################
 version: "3.1"
 services:
-
-    mysql:
-      image: mysql:8.0
-      container_name: phpdocker-mysql
+ 
+    db:
+      image: mariadb:10.3
+      restart: always
       environment:
-        - MYSQL_ROOT_PASSWORD=demo
-        - MYSQL_DATABASE=demo
-        - MYSQL_USER=demo
-        - MYSQL_PASSWORD=demo
+        MYSQL_ROOT_PASSWORD: root
+      ports:
+        - "3306:3306"
+      networks:
+        - web-db-net
+  
+    phpmyadmin:
+      image: phpmyadmin
+      restart: always
+      ports:
+        - 8080:80
+      environment:
+        - PMA_ARBITRARY=1
 
     webserver:
       image: nginx:alpine
@@ -23,8 +32,10 @@ services:
       ports:
        - "8005:80"
       links:
-       - mysql
        - php-fpm
+      networks:
+        - web-db-net
+    
 
     php-fpm:
       build: phpdocker/php-fpm
@@ -33,4 +44,12 @@ services:
       volumes:
         - ./src:/application
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+      networks:
+        - web-db-net
 
+
+networks:
+    web-db-net:
+  
+
+    

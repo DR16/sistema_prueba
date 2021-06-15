@@ -54,7 +54,7 @@ $resultadoV = $connect->query($queryV);
 	<div class="col-md-6">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <a href="product.php" style="text-decoration:none;color:black;">
+        <a href="product.php" style="text-decoration:none;color:green;">
           Total de Clientes Oro:
           <span class="badge pull pull-right"><?php echo $countProductB; ?></span>
         </a>
