@@ -94,10 +94,7 @@ require_once 'includes/header.php';
 								<th>Monto(Abono)</th>
 								<th>Saldo</th>		
 								<th>Estatus</th>									
-								<th style="width:15%;">Opciones</th>
-							</tr>
-						</thead>
-					</table>
+				le>
 					<!-- /table -->
 
 				</div> <!-- /panel-body -->
